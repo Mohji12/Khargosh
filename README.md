@@ -1,6 +1,6 @@
-# 3D Animated Photo Gallery
+# 3D Animated Photo Gallery 💖
 
-A beautiful, interactive 3D photo gallery built with React and Three.js. Perfect for showcasing special memories!
+A beautiful, interactive 3D photo gallery built with React and Three.js. Perfect for showcasing special memories with romantic descriptions and animations!
 
 ## Features
 
@@ -87,4 +87,69 @@ This creates an optimized production build in the `build` folder.
 - The gallery automatically handles missing images with placeholders
 
 Enjoy your beautiful 3D gallery! 💖
+
+## Deploy to Vercel
+
+### Option 1: Deploy via Vercel Dashboard (Recommended)
+
+1. Go to [Vercel](https://vercel.com) and sign in
+2. Click "Add New" → "Project"
+3. Import your GitHub repository: `Mohji12/Khargosh`
+4. Vercel will auto-detect it's a React app
+5. Click "Deploy"
+6. Your site will be live in minutes!
+
+### Option 2: Deploy via Vercel CLI
+
+```bash
+npm i -g vercel
+vercel
+```
+
+Follow the prompts to deploy your project.
+
+## GitHub Deployment
+
+### Push to GitHub (if not done yet)
+
+1. **Authenticate with GitHub:**
+   ```bash
+   # Option A: Use GitHub CLI (recommended)
+   gh auth login
+   
+   # Option B: Use Personal Access Token
+   git remote set-url origin https://YOUR_TOKEN@github.com/Mohji12/Khargosh.git
+   ```
+
+2. **Push your code:**
+   ```bash
+   git push -u origin main
+   ```
+
+### Troubleshooting GitHub Push
+
+If you get authentication errors:
+
+**Method 1: Use GitHub CLI**
+```bash
+# Install GitHub CLI if not installed
+# Windows: winget install GitHub.cli
+gh auth login
+git push -u origin main
+```
+
+**Method 2: Use Personal Access Token**
+1. Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+2. Generate new token with `repo` permissions
+3. Use it as password when pushing
+
+**Method 3: Use SSH**
+```bash
+git remote set-url origin git@github.com:Mohji12/Khargosh.git
+git push -u origin main
+```
+
+## Repository
+
+🔗 **GitHub:** https://github.com/Mohji12/Khargosh
 
