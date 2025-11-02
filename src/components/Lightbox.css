@@ -1,0 +1,652 @@
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 240, 245, 0.95) 0%, rgba(255, 228, 225, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease-out;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.lightbox-image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  animation: scaleIn 0.4s ease-out;
+}
+
+.lightbox-image {
+  max-width: 75vw;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(255, 255, 255, 0.1);
+  animation: scaleIn 0.4s ease-out;
+  transition: all 0.3s ease;
+}
+
+.lightbox-image:hover {
+  box-shadow: 
+    0 30px 100px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 0 80px rgba(255, 192, 203, 0.3);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Romantic Description Card Styling */
+.lightbox-description {
+  max-width: 650px;
+  padding: 3.5rem 3.5rem 3rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 240, 245, 0.15) 0%,
+    rgba(255, 228, 225, 0.12) 50%,
+    rgba(255, 240, 245, 0.15) 100%
+  );
+  backdrop-filter: blur(30px);
+  border: 2px solid;
+  border-image: linear-gradient(
+    135deg,
+    rgba(255, 192, 203, 0.6),
+    rgba(221, 160, 221, 0.6),
+    rgba(255, 182, 193, 0.6)
+  ) 1;
+  border-radius: 32px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 192, 203, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 192, 203, 0.1),
+    0 0 100px rgba(255, 192, 203, 0.15);
+  overflow: hidden;
+}
+
+.lightbox-description::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 192, 203, 0.1) 0%,
+    transparent 70%
+  );
+  animation: romanticGlow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes romanticGlow {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+.lightbox-description.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Card Corner Decorations */
+.card-corner {
+  position: absolute;
+  z-index: 2;
+}
+
+.card-corner-top-left {
+  top: 8px;
+  left: 8px;
+}
+
+.card-corner-top-right {
+  top: 8px;
+  right: 8px;
+}
+
+.card-corner-bottom-left {
+  bottom: 8px;
+  left: 8px;
+}
+
+.card-corner-bottom-right {
+  bottom: 8px;
+  right: 8px;
+}
+
+/* Header Section */
+.description-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.heart-icon {
+  animation: heartbeat 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(255, 192, 203, 0.5));
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+.header-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 192, 203, 0.6),
+    transparent
+  );
+}
+
+.header-text {
+  color: #d91a72;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: 'Georgia', serif;
+  text-shadow: 0 2px 8px rgba(255, 192, 203, 0.4);
+}
+
+/* Decorative Elements */
+.description-decorative-top,
+.description-decorative-bottom {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  opacity: 0.6;
+}
+
+/* Main Text Styling */
+.description-text {
+  color: #8b1a5c;
+  font-size: 1.25rem;
+  line-height: 2;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  margin: 0;
+  padding: 0 1.5rem;
+  text-shadow: 
+    0 1px 3px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 192, 203, 0.4);
+  position: relative;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.quote-mark {
+  font-size: 3.5rem;
+  color: rgba(255, 192, 203, 0.6);
+  font-family: 'Georgia', serif;
+  line-height: 0;
+  position: relative;
+  display: inline-block;
+  text-shadow: 
+    0 0 20px rgba(255, 192, 203, 0.5),
+    0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.quote-mark-open {
+  margin-right: 0.3rem;
+  vertical-align: -0.3em;
+}
+
+.quote-mark-close {
+  margin-left: 0.3rem;
+  vertical-align: -0.3em;
+}
+
+/* Footer Section */
+.description-footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-hearts {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.footer-hearts svg {
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(255, 192, 203, 0.4));
+}
+
+.footer-hearts svg:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.footer-hearts svg:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.footer-hearts svg:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Sparkles Animation */
+.sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: sparkleAnimation 3s ease-in-out infinite;
+}
+
+.sparkle-1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  top: 25%;
+  right: 15%;
+  animation-delay: 0.7s;
+}
+
+.sparkle-3 {
+  bottom: 25%;
+  left: 12%;
+  animation-delay: 1.4s;
+}
+
+.sparkle-4 {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 2.1s;
+}
+
+@keyframes sparkleAnimation {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 192, 203, 0.5);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #d91a72;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 192, 203, 0.6);
+  transform: rotate(90deg);
+  box-shadow: 0 6px 16px rgba(255, 192, 203, 0.5);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 192, 203, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #d91a72;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+}
+
+.lightbox-prev {
+  left: -70px;
+}
+
+.lightbox-next {
+  right: -70px;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 192, 203, 0.6);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(255, 192, 203, 0.5);
+}
+
+.lightbox-info {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d91a72;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.photo-counter {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 192, 203, 0.5);
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .lightbox-image {
+    max-width: 80vw;
+    max-height: 65vh;
+  }
+  
+  .lightbox-description {
+    max-width: 70vw;
+    padding: 3rem 2.5rem 2.5rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .lightbox-content {
+    padding: 0.75rem;
+    gap: 1rem;
+    max-width: 100vw;
+  }
+
+  .lightbox-prev {
+    left: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .lightbox-next {
+    right: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .lightbox-close {
+    top: 5px;
+    right: 5px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .lightbox-image {
+    max-width: 95vw;
+    max-height: 45vh;
+    border-radius: 12px;
+  }
+
+  .lightbox-image-container {
+    gap: 1rem;
+  }
+
+  .lightbox-description {
+    max-width: 95vw;
+    padding: 1.5rem 1rem 1.25rem;
+    margin-top: 0.5rem;
+    border-radius: 20px;
+    border-width: 1.5px;
+  }
+
+  .card-corner {
+    display: none;
+  }
+
+  .description-header {
+    margin-bottom: 1rem;
+    gap: 0.4rem;
+  }
+
+  .header-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  .header-line {
+    width: 25px;
+  }
+
+  .heart-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .description-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .quote-mark {
+    font-size: 2rem;
+  }
+
+  .description-decorative-top,
+  .description-decorative-bottom {
+    margin: 0.75rem 0;
+  }
+
+  .description-decorative-top svg,
+  .description-decorative-bottom svg {
+    width: 70px;
+    height: 18px;
+  }
+
+  .description-footer {
+    margin-top: 1rem;
+  }
+
+  .footer-hearts {
+    gap: 0.4rem;
+  }
+
+  .footer-hearts svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  .sparkle {
+    font-size: 0.9rem;
+  }
+  
+  .lightbox-info {
+    bottom: 5px;
+    position: fixed;
+    font-size: 11px;
+  }
+  
+  .photo-counter {
+    padding: 0.4rem 1rem;
+    font-size: 11px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .lightbox-content {
+    padding: 0.5rem;
+    gap: 0.75rem;
+  }
+  
+  .lightbox-prev,
+  .lightbox-next {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .lightbox-close {
+    width: 32px;
+    height: 32px;
+    top: 3px;
+    right: 3px;
+  }
+  
+  .lightbox-image {
+    max-width: 98vw;
+    max-height: 40vh;
+    border-radius: 10px;
+  }
+  
+  .lightbox-description {
+    padding: 1.25rem 0.75rem 1rem;
+    margin-top: 0.25rem;
+    border-radius: 16px;
+  }
+  
+  .description-header {
+    margin-bottom: 0.75rem;
+    gap: 0.3rem;
+  }
+  
+  .header-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+  
+  .header-line {
+    width: 20px;
+  }
+  
+  .description-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+  
+  .quote-mark {
+    font-size: 1.75rem;
+  }
+  
+  .description-decorative-top,
+  .description-decorative-bottom {
+    margin: 0.5rem 0;
+  }
+  
+  .description-decorative-top svg,
+  .description-decorative-bottom svg {
+    width: 60px;
+    height: 15px;
+  }
+  
+  .lightbox-info {
+    bottom: 3px;
+    font-size: 10px;
+  }
+  
+  .photo-counter {
+    padding: 0.35rem 0.8rem;
+    font-size: 10px;
+  }
+}
+

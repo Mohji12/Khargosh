@@ -1,0 +1,122 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.title-main {
+  color: #d91a72;
+  font-size: 3.5rem;
+  font-weight: 200;
+  text-shadow: 
+    0 2px 10px rgba(217, 26, 114, 0.3),
+    0 4px 20px rgba(255, 192, 203, 0.5),
+    2px 2px 4px rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.15em;
+  margin: 0;
+  background: linear-gradient(135deg, #d91a72 0%, #ff69b4 50%, #ff1493 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 10px rgba(255, 192, 203, 0.6));
+}
+
+.title-subtitle {
+  color: #ff69b4;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  opacity: 0.95;
+  text-shadow: 
+    0 2px 8px rgba(255, 192, 203, 0.5),
+    1px 1px 2px rgba(255, 255, 255, 0.6);
+  animation: fadeInDelay 1.5s ease-out;
+}
+
+@keyframes fadeInDelay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .title {
+    top: 2.5rem;
+  }
+  
+  .title-main {
+    font-size: 3rem;
+  }
+  
+  .title-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .title {
+    top: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .title-main {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+  }
+  
+  .title-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    margin-top: 0.3rem;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .title {
+    top: 0.75rem;
+    padding: 0 0.75rem;
+  }
+  
+  .title-main {
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+  }
+  
+  .title-subtitle {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+  }
+}
+

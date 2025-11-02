@@ -1,0 +1,172 @@
+.falling-hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.falling-text {
+  position: absolute;
+  top: -100px;
+  color: #ff1744;
+  font-weight: 500;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-shadow: 
+    0 0 10px rgba(255, 23, 68, 0.8),
+    0 0 20px rgba(255, 23, 68, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  animation: fall linear;
+  will-change: transform;
+  user-select: none;
+  opacity: 0.9;
+  letter-spacing: 1px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .falling-text {
+    font-size: 14px !important;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+  }
+}
+
+@media (max-width: 480px) {
+  .falling-text {
+    font-size: 12px !important;
+    letter-spacing: 0.3px;
+    opacity: 0.8;
+  }
+}
+
+.falling-text:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Different animation variations for more randomness */
+.falling-text:nth-child(odd) {
+  animation-name: fallSlow;
+}
+
+.falling-text:nth-child(3n) {
+  animation-name: fallSway;
+}
+
+.falling-text:nth-child(4n) {
+  animation-name: fallFast;
+}
+
+@keyframes fallSlow {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(calc(50vh - 50px)) translateX(20px) rotate(180deg);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(-20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallSway {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(calc(25vh - 25px)) translateX(-15px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(calc(50vh - 50px)) translateX(15px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(calc(75vh - 75px)) translateX(-10px) rotate(270deg);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallFast {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(10px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced heart styling - hearts in the text will pulse */
+
+/* Make sure hearts are visible and styled */
+.falling-text::after {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 23, 68, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heartGlow 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes heartGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-50%) scale(1.5);
+  }
+}
+
